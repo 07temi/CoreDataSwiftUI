@@ -14,7 +14,8 @@ struct CoreDataSwiftUIApp: App {
     var body: some Scene {
         WindowGroup {
             //ContentView()
-            StartScreen()
+            //StartScreen()
+            PetsStartScreen()
                 .environment(\.managedObjectContext, persistenceController.container.viewContext)
         }
     }

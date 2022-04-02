@@ -24,7 +24,7 @@ struct StartScreen: View {
                     NavigationLink {
                         Text("Item at \(pet.name!)")
                     } label: {
-                        Text(pet.name!)
+                        Text(pet.type!)
                     }
                 }
                 .onDelete(perform: deleteItems)
@@ -72,6 +72,6 @@ struct StartScreen: View {
 
 struct StartScreen_Previews: PreviewProvider {
     static var previews: some View {
-        StartScreen()//.environment(\.managedObjectContext, PersistenceController.preview.container.viewContext)
+        StartScreen()
     }
 }
