@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7DCAC4D928018BF30092F1C2 /* AddViewScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DCAC4D828018BF30092F1C2 /* AddViewScreen.swift */; };
 		7DD861A127F8454700D023E4 /* CoreDataSwiftUIApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DD861A027F8454700D023E4 /* CoreDataSwiftUIApp.swift */; };
 		7DD861A327F8454700D023E4 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DD861A227F8454700D023E4 /* ContentView.swift */; };
 		7DD861A527F8454800D023E4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7DD861A427F8454800D023E4 /* Assets.xcassets */; };
@@ -18,6 +19,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		7DCAC4D828018BF30092F1C2 /* AddViewScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddViewScreen.swift; sourceTree = "<group>"; };
 		7DD8619D27F8454700D023E4 /* CoreDataSwiftUI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CoreDataSwiftUI.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7DD861A027F8454700D023E4 /* CoreDataSwiftUIApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataSwiftUIApp.swift; sourceTree = "<group>"; };
 		7DD861A227F8454700D023E4 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -67,6 +69,7 @@
 				7DD861A627F8454800D023E4 /* Preview Content */,
 				7DD861B627F8C66E00D023E4 /* StartScreen.swift */,
 				7DD861B827F8D5C300D023E4 /* PetsStartScreen.swift */,
+				7DCAC4D828018BF30092F1C2 /* AddViewScreen.swift */,
 			);
 			path = CoreDataSwiftUI;
 			sourceTree = "<group>";
@@ -155,6 +158,7 @@
 				7DD861B727F8C66E00D023E4 /* StartScreen.swift in Sources */,
 				7DD861AD27F8454800D023E4 /* CoreDataSwiftUI.xcdatamodeld in Sources */,
 				7DD861A127F8454700D023E4 /* CoreDataSwiftUIApp.swift in Sources */,
+				7DCAC4D928018BF30092F1C2 /* AddViewScreen.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

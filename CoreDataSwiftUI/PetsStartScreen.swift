@@ -18,15 +18,18 @@ struct PetsStartScreen: View {
     
     var body: some View {
         TabView {
-            ForEach(pets) { pet in
+            ForEach(Array(zip(pets.indices, pets)), id: \.0) { index, pet in
                 VStack {
                     Text(pet.name!)
-                    Button("Delete", action: {} )
+                    Button("Delete", action: {
+                        let deleteItem = IndexSet([index])
+                        deleteUser(at: deleteItem)
+                        print(index) } )
                 }
             }
             VStack {
                 Text("add")
-                Button("add", action: {} )
+                Button("add", action: {addItem()} )
             }
         }
         .tabViewStyle(.page(indexDisplayMode: .always))
@@ -46,16 +49,24 @@ struct PetsStartScreen: View {
         }
     }
     
-    private func deleteItems(offsets: IndexSet) {
-        offsets.map { pets[$0] }.forEach(viewContext.delete)
-        
-        do {
-            try viewContext.save()
-        } catch {
-            let nsError = error as NSError
-            fatalError("Fatal error \(nsError), \(nsError.userInfo)")
+    private func deleteUser(at offsets: IndexSet) {
+        for index in offsets {
+            let user = pets[index]
+            viewContext.delete(user)
         }
+        try? viewContext.save()
     }
+    
+//    private func deleteItems(offsets: IndexSet) {
+//        offsets.map { pets[$0] }.forEach(viewContext.delete)
+//        
+//        do {
+//            try viewContext.save()
+//        } catch {
+//            let nsError = error as NSError
+//            fatalError("Fatal error \(nsError), \(nsError.userInfo)")
+//        }
+//    }
 }
 
 struct PetsStartScreen_Previews: PreviewProvider {
