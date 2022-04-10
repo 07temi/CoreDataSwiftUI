@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct AddViewScreen: View {
+    @Environment(\.managedObjectContext) private var viewContext
     @State private var name = ""
     @State private var sname = ""
     @State private var type = ""
@@ -26,6 +27,22 @@ struct AddViewScreen: View {
                     }
                 }
             }
+        }
+        .toolbar {
+            Button("Save", action: {addItem()} )
+        }
+    }
+    
+    private func addItem() {
+        let newItem = Pets(context: viewContext)
+        newItem.name = name
+        newItem.type = type
+        
+        do {
+            try viewContext.save()
+        } catch {
+            let nsError = error as NSError
+            fatalError("Fatal error \(nsError), \(nsError.userInfo)")
         }
     }
 }

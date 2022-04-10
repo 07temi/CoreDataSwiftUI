@@ -16,7 +16,10 @@ struct PetsStartScreen: View {
         animation: .default)
     private var pets: FetchedResults<Pets>
     
+    //@State private var isActive = true
+    
     var body: some View {
+        NavigationView {
         TabView {
             ForEach(Array(zip(pets.indices, pets)), id: \.0) { index, pet in
                 VStack {
@@ -28,12 +31,16 @@ struct PetsStartScreen: View {
                 }
             }
             VStack {
+                NavigationLink("Add new") {
+                    AddViewScreen()
+                }
                 Text("add")
-                Button("add", action: {addItem()} )
+                //Button("add", action: {addItem()} )
             }
         }
         .tabViewStyle(.page(indexDisplayMode: .always))
         .indexViewStyle(.page(backgroundDisplayMode: .always))
+    }
     }
     
     private func addItem() {
