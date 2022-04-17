@@ -12,6 +12,7 @@ struct AddViewScreen: View {
     @State private var name = ""
     @State private var sname = ""
     @State private var type = ""
+   // @State private var picture = ""
     private let genders = ["Dog", "Cat"]
     
     var body: some View {
@@ -21,7 +22,7 @@ struct AddViewScreen: View {
                     .disableAutocorrection(true)
                 TextField("Enter last name", text: $sname)
                     .disableAutocorrection(true)
-                Picker("Select gender", selection: $type) {
+                Picker("Select type", selection: $type) {
                     ForEach(genders, id: \.self) { gender in
                         Text(gender)
                     }
@@ -37,6 +38,7 @@ struct AddViewScreen: View {
         let newItem = Pets(context: viewContext)
         newItem.name = name
         newItem.type = type
+        newItem.picture = "james"
         
         do {
             try viewContext.save()

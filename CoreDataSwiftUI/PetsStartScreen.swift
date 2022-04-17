@@ -24,10 +24,19 @@ struct PetsStartScreen: View {
             ForEach(Array(zip(pets.indices, pets)), id: \.0) { index, pet in
                 VStack {
                     Text(pet.name!)
+                    NavigationLink(destination: PetDetailScreen(pet: pet)) {
+                        Image(pet.picture ?? "star.fill")
+                            .resizable()
+                            .scaledToFill()
+                            .frame(width: 200, height: 200)
+                            .cornerRadius(15)
+                    }
+                    
                     Button("Delete", action: {
                         let deleteItem = IndexSet([index])
                         deleteUser(at: deleteItem)
                         print(index) } )
+                    Spacer()
                 }
             }
             VStack {
@@ -43,19 +52,19 @@ struct PetsStartScreen: View {
     }
     }
     
-    private func addItem() {
-        let newItem = Pets(context: viewContext)
-        newItem.name = "1"//String()
-        newItem.type = "2"
-        
-        do {
-            try viewContext.save()
-        } catch {
-            let nsError = error as NSError
-            fatalError("Fatal error \(nsError), \(nsError.userInfo)")
-        }
-    }
-    
+//    private func addItem() {
+//        let newItem = Pets(context: viewContext)
+//        newItem.name = "1"//String()
+//        newItem.type = "2"
+//        
+//        do {
+//            try viewContext.save()
+//        } catch {
+//            let nsError = error as NSError
+//            fatalError("Fatal error \(nsError), \(nsError.userInfo)")
+//        }
+//    }
+//    
     private func deleteUser(at offsets: IndexSet) {
         for index in offsets {
             let user = pets[index]
@@ -74,6 +83,7 @@ struct PetsStartScreen: View {
 //            fatalError("Fatal error \(nsError), \(nsError.userInfo)")
 //        }
 //    }
+    
 }
 
 struct PetsStartScreen_Previews: PreviewProvider {
